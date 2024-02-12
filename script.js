@@ -69,4 +69,8 @@ function clearAllDisplay() {
 }
 
 // clearLastDisplayElement
+function clearLastDisplayElement() {
+  displayValue = displayValue.slice(0, -1);
+  display.value = displayValue;
+}
 
