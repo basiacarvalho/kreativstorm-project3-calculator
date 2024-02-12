@@ -14,9 +14,8 @@
     <main class="calculator">
       <input class="calculator__display" readonly value="0">
       <div class="calculator__buttons">
-        <button class="calculator__button calculator__button--grey" onclick="clearDisplay()">C</button>
-        <button class="calculator__button calculator__button--grey" onclick="showOnDisplay('+/-')">+/-</button>
-        <button class="calculator__button calculator__button--grey" onclick="showOnDisplay('%')">%</button>
+        <button class="calculator__button calculator__button--grey one-and-half-space" onclick="clearDisplay()">C</button>
+        <button class="calculator__button calculator__button--grey one-and-half-space" onclick="showOnDisplay()">DEL</button>
         <button class="calculator__button calculator__button--orange" onclick="showOnDisplay('÷')">÷</button>
         <button class="calculator__button" onclick="showOnDisplay('7')">7</button>
         <button class="calculator__button" onclick="showOnDisplay('8')">8</button>
@@ -30,9 +29,9 @@
         <button class="calculator__button" onclick="showOnDisplay('2')">2</button>
         <button class="calculator__button" onclick="showOnDisplay('3')">3</button>
         <button class="calculator__button calculator__button--orange" onclick="showOnDisplay('+')">+</button>
-        <button class="calculator__button double-space-button" onclick="showOnDisplay('0')">0</button>
+        <button class="calculator__button" onclick="showOnDisplay('0')">0</button>
         <button class="calculator__button" onclick="showOnDisplay(',')">,</button>
-        <button class="calculator__button calculator__button--orange" onclick="calculate()">=</button>
+        <button class="calculator__button calculator__button--green double-space-button" onclick="calculate()">=</button>
       </div>
     </main>
     <footer class="footer">
