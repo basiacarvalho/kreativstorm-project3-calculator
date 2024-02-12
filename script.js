@@ -43,12 +43,17 @@ function operate(operator, number1, number2) {
 }
 
 const display = document.querySelector(".calculator__display");
-let displayValue = "0";
+let displayValue = "";
 let userFirstInput = null;
 let operator = null;
+let showingResult = false;
 
-// Function that shows on the calculator display what the user clicked
+// Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
+  if (showingResult === true) {
+    display.value = "";
+    showingResult = false;
+  } 
   display.value += input;
   displayValue = display.value;
 }
@@ -57,6 +62,7 @@ function showOnDisplay(input) {
 function calculate() {
   displayValue = operate(operator, userFirstInput, Number(displayValue));
   display.value = displayValue;
+  showingResult = true;
 }
 
 // Storing the 1st  input value into a calculator when a user presses an operator
@@ -65,3 +71,5 @@ function setOperator(chosenOperator) {
   userFirstInput = Number(displayValue);
   display.value = '';
 }
+
+
