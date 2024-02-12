@@ -62,6 +62,7 @@ function calculate() {
 
 // Storing the 1st  input value into a calculator when a user presses an operator
 function setOperator(chosenOperator) {
+  calculate();
   operator = chosenOperator;
   userFirstInput = Number(displayValue);
 }
