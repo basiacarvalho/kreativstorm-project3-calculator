@@ -27,7 +27,12 @@ function operate(operator, number1, number2) {
   } else if (operator === "*") {
     return multiply(number1, number2);
   } else if (operator === "/") {
-    return divide(number1, number2);
+    if (number2 === 0) {
+      display.value = "Are you crazy?!";
+      return display.value;
+    } else {
+      return divide(number1, number2);
+    }
   } else {
     throw new Error("Unrecognized operator.");
   };
