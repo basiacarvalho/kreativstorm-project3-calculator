@@ -12,7 +12,6 @@ function add(number1, number2) {
   return number1 + number2;
 }
 
-
 // Basic Math's function for substraction
 function substract(number1, number2) {
   return number1 - number2;
@@ -44,11 +43,25 @@ function operate(operator, number1, number2) {
 }
 
 const display = document.querySelector(".calculator__display");
-
 let displayValue = "0";
+let userFirstInput = null;
+let operator = null;
 
 // Function that shows on the calculator display what the user clicked
 function showOnDisplay(input) {
   display.value += input;
   displayValue = display.value;
+}
+
+// Making the calculator work when the user presses "="
+function calculate() {
+  displayValue = operate(operator, userFirstInput, Number(displayValue));
+  display.value = displayValue;
+}
+
+// Storing the 1st  input value into a calculator when a user presses an operator
+function setOperator(chosenOperator) {
+  operator = chosenOperator;
+  userFirstInput = Number(displayValue);
+  display.value = '';
 }
