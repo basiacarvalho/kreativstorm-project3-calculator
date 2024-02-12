@@ -74,7 +74,9 @@ function clearAllDisplay() {
 
 // Clearing the last display element
 function clearLastDisplayElement() {
-  displayValue = displayValue.slice(0, -1);
-  display.value = displayValue;
+  if (showingResult !== true) {
+    displayValue = displayValue.slice(0, -1);
+    display.value = displayValue;
+  } 
 }
 
