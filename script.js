@@ -1,12 +1,3 @@
-// function clearAllDisplay() {
-//   display.value = "";
-// }
-
-
-// clearAllDisplay
-// clearLastDisplayElement
-
-
 // Basic Math's function for addition
 function add(number1, number2) {
   return number1 + number2;
@@ -72,4 +63,10 @@ function setOperator(chosenOperator) {
   display.value = '';
 }
 
+// Clearing all the calculator display using the C button
+function clearAllDisplay() {
+  display.value = "";
+}
+
+// clearLastDisplayElement
 
