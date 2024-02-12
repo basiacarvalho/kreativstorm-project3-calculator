@@ -76,10 +76,6 @@ body {
 
 .calculator__button:hover,
 .calculator__button:focus {
-  background-color: hsl(0, 0%, 40%);
-}
-
-.calculator__button:active {
   background-color: hsl(0, 0%, 50%);
 }
 
@@ -88,12 +84,27 @@ body {
   color:#1f2937;
 }
 
+.calculator__button--grey:hover,
+.calculator__button--grey:focus {
+  background-color: hsl(0, 0%, 95%);
+}
+
 .calculator__button--orange {
-  background-color: orange;
+  background-color: hsl(39, 100%, 50%);
+}
+
+.calculator__button--orange:hover,
+.calculator__button--orange:focus {
+  background-color: hsl(39, 100%, 70%);
 }
 
 .calculator__button--green {
-  background-color: green;
+  background-color: hsl(120, 100%, 25%);
+}
+
+.calculator__button--green:hover,
+.calculator__button--green:focus {
+  background-color: hsl(120, 100%, 33%);
 }
 
 .one-and-half-space {
