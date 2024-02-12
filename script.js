@@ -42,13 +42,13 @@ const display = document.querySelector(".calculator__display");
 let displayValue = "";
 let userFirstInput = null;
 let operator = null;
-let showingResult = false;
+let shouldClearDisplay = false;
 
 // Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
-  if (showingResult === true || operator !== null) {
+  if (shouldClearDisplay === true) {
     display.value = "";
-    showingResult = false;
+    shouldClearDisplay = false;
   } 
   if (input !== "." || !displayValue.includes('.')) {
     display.value += input;
@@ -61,7 +61,7 @@ function calculate() {
   if (operator !== null  && userFirstInput !== null && displayValue !== "") {
     displayValue = operate(operator, userFirstInput, Number(displayValue));
     display.value = displayValue;
-    showingResult = true;
+    shouldClearDisplay = true;
     operator = null;
     userFirstInput = null;
   }  
@@ -72,6 +72,7 @@ function setOperator(chosenOperator) {
   calculate();
   operator = chosenOperator;
   userFirstInput = Number(displayValue);
+  shouldClearDisplay = true;
 }
 
 // Clearing all the calculator display using the C button
@@ -80,12 +81,12 @@ function clearAllDisplay() {
   displayValue = "";
   userFirstInput = null;
   operator = null;
-  showingResult = false;
+  shouldClearDisplay = false;
 }
 
 // Clearing the last display element
 function clearLastDisplayElement() {
-  if (showingResult !== true) {
+  if (shouldClearDisplay !== true) {
     displayValue = displayValue.slice(0, -1);
     display.value = displayValue;
   } 
