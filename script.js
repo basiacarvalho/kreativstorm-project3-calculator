@@ -41,7 +41,7 @@ let showingResult = false;
 
 // Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
-  if (showingResult === true) {
+  if (showingResult === true || operator !== null) {
     display.value = "";
     showingResult = false;
   } 
@@ -51,16 +51,19 @@ function showOnDisplay(input) {
 
 // Making the calculator work when the user presses "="
 function calculate() {
-  displayValue = operate(operator, userFirstInput, Number(displayValue));
-  display.value = displayValue;
-  showingResult = true;
+  if (operator !== null  && userFirstInput !== null && displayValue !== "") {
+    displayValue = operate(operator, userFirstInput, Number(displayValue));
+    display.value = displayValue;
+    showingResult = true;
+    operator = null;
+    userFirstInput = null;
+  }  
 }
 
 // Storing the 1st  input value into a calculator when a user presses an operator
 function setOperator(chosenOperator) {
   operator = chosenOperator;
   userFirstInput = Number(displayValue);
-  display.value = '';
 }
 
 // Clearing all the calculator display using the C button
@@ -68,7 +71,7 @@ function clearAllDisplay() {
   display.value = "";
 }
 
-// clearLastDisplayElement
+// Clearing the last display element
 function clearLastDisplayElement() {
   displayValue = displayValue.slice(0, -1);
   display.value = displayValue;
