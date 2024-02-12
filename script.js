@@ -50,8 +50,10 @@ function showOnDisplay(input) {
     display.value = "";
     showingResult = false;
   } 
-  display.value += input;
-  displayValue = display.value;
+  if (input !== "." || !displayValue.includes('.')) {
+    display.value += input;
+    displayValue = display.value;
+  }
 }
 
 // Making the calculator work when the user presses "="
