@@ -1,57 +1,34 @@
-
-
-
-
 // function clearAllDisplay() {
 //   display.value = "";
 // }
 
-// function calculate() {
-//   try {
-//     display.value = eval(display.value);
-//   }
-//   catch (error) {
-//     display.value = "Error";
-//   }
-// }
-
-// function clearLastDisplayElement() {
-// }
 
 // clearAllDisplay
 // clearLastDisplayElement
 
-// calculate
 
-
-// add
+// Basic Math's function for addition
 function add(number1, number2) {
   return number1 + number2;
 }
 
-// console.log(add(10, 5));
 
-// substract
+// Basic Math's function for substraction
 function substract(number1, number2) {
   return number1 - number2;
 }
 
-// console.log(substract(10, 5));
-
-// multiply
+// Basic Math's function for multiplication
 function multiply(number1, number2) {
   return number1 * number2;
 }
 
-// console.log(multiply(10, 5));
-
-// divide
+// Basic Math's function for division
 function divide(number1, number2) {
   return number1 / number2;
 }
 
-// console.log(divide(10, 5));
-
+// Function that takes 2 numbers and according to the operator calls the correct basic Math's function
 function operate(operator, number1, number2) {
   if (operator === "+") {
     return add(number1, number2);
@@ -66,14 +43,12 @@ function operate(operator, number1, number2) {
   };
 }
 
-// console.log(operate("+", 10, 5));
-
 const display = document.querySelector(".calculator__display");
 
 let displayValue = "0";
 
+// Function that shows on the calculator display what the user clicked
 function showOnDisplay(input) {
   display.value += input;
   displayValue = display.value;
-
 }
