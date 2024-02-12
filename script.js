@@ -70,6 +70,10 @@ function setOperator(chosenOperator) {
 // Clearing all the calculator display using the C button
 function clearAllDisplay() {
   display.value = "";
+  displayValue = "";
+  userFirstInput = null;
+  operator = null;
+  showingResult = false;
 }
 
 // Clearing the last display element
