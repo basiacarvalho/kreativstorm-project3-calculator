@@ -4,7 +4,7 @@ function showOnDisplay(input) {
   display.value += input;
 }
 
-function clearDisplay() {
+function clearAllDisplay() {
   display.value = "";
 }
 
@@ -16,3 +16,18 @@ function calculate() {
     display.value = "Error";
   }
 }
+
+function clearLastDisplayElement() {
+
+}
+
+// clearAllDisplay
+// clearLastDisplayElement
+// divide
+// multiply
+// substract
+// add
+// calculate
+
+
+
