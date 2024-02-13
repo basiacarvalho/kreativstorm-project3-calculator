@@ -143,6 +143,8 @@ document.addEventListener("keydown", (event) => {
     setOperator('+');
   } else if ((event.key === "=")) {
     calculate();
+  } else if ((event.key === "Enter")) {
+    calculate();
   } else if ((event.key === "Delete")) {
     clearAllDisplay();
   } else if ((event.key === "Backspace")) {
