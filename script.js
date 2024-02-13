@@ -1,21 +1,21 @@
-// Basic Math's function for addition
-function add(number1, number2) {
-  return number1 + number2;
-}
+const display = document.querySelector(".calculator__display");
 
-// Basic Math's function for substraction
-function substract(number1, number2) {
-  return number1 - number2;
-}
+let displayValue = "";
+let userFirstInput = null;
+let operator = null;
+let shouldClearDisplay = false;
+let lastButtonPressed = null;
 
-// Basic Math's function for multiplication
-function multiply(number1, number2) {
-  return number1 * number2;
-}
-
-// Basic Math's function for division
-function divide(number1, number2) {
-  return number1 / number2;
+// Making the calculator work
+function calculate() {
+  if (operator !== null  && userFirstInput !== null && displayValue !== "") {
+    displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
+    const numberOfDigitsLeftAfterDot = calculateNumberOfDecimalDigits();
+    display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
+    shouldClearDisplay = true;
+    operator = null;
+    userFirstInput = null;
+  }
 }
 
 // Function that takes 2 numbers and according to the operator calls the correct basic Math's function
@@ -38,12 +38,32 @@ function operate(operator, number1, number2) {
   };
 }
 
-const display = document.querySelector(".calculator__display");
-let displayValue = "";
-let userFirstInput = null;
-let operator = null;
-let shouldClearDisplay = false;
-let lastButtonPressed = null;
+// Basic Math's function for addition
+function add(number1, number2) {
+  return number1 + number2;
+}
+
+// Basic Math's function for substraction
+function substract(number1, number2) {
+  return number1 - number2;
+}
+
+// Basic Math's function for multiplication
+function multiply(number1, number2) {
+  return number1 * number2;
+}
+
+// Basic Math's function for division
+function divide(number1, number2) {
+  return number1 / number2;
+}
+
+// Logic for displaying and limiting the length of the result on display
+function calculateNumberOfDecimalDigits() {
+  const positionOfDotInResult = displayValue.toString().indexOf('.');
+  const maxNumberOfDigitsOnDisplay = 13;
+  return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
+}
 
 // Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
@@ -59,24 +79,6 @@ function showOnDisplay(input) {
     display.value += input;
     displayValue = display.value;
   }
-}
-
-// Making the calculator work when the user presses "="
-function calculate() {
-  if (operator !== null  && userFirstInput !== null && displayValue !== "") {
-    displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
-    const numberOfDigitsLeftAfterDot = calculatingNumberOfDecimalDigits();
-    display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
-    shouldClearDisplay = true;
-    operator = null;
-    userFirstInput = null;
-  }
-}
-
-function calculatingNumberOfDecimalDigits() {
-  const positionOfDotInResult = displayValue.toString().indexOf('.');
-  const maxNumberOfDigitsOnDisplay = 13;
-  return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
 }
 
 // Storing the 1st  input value into a calculator when a user presses an operator
