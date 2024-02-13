@@ -43,9 +43,11 @@ let displayValue = "";
 let userFirstInput = null;
 let operator = null;
 let shouldClearDisplay = false;
+let lastButtonPressed = null;
 
 // Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
+  lastButtonPressed = input;
   if (displayValue.length > 12) {
     return;
   }
@@ -72,14 +74,18 @@ function calculate() {
 
 // Storing the 1st  input value into a calculator when a user presses an operator
 function setOperator(chosenOperator) {
-  calculate();
+  if (!["/", "*", "-", "+"].includes(lastButtonPressed)) {
+    calculate();
+  }
   operator = chosenOperator;
   userFirstInput = Number(displayValue);
   shouldClearDisplay = true;
+  lastButtonPressed = chosenOperator;
 }
 
 // Clearing all the calculator display using the C button
 function clearAllDisplay() {
+  lastButtonPressed = null;
   display.value = "";
   displayValue = "";
   userFirstInput = null;
@@ -89,6 +95,7 @@ function clearAllDisplay() {
 
 // Clearing the last display element
 function clearLastDisplayElement() {
+  lastButtonPressed = 'DEL'
   if (shouldClearDisplay !== true) {
     displayValue = displayValue.slice(0, -1);
     display.value = displayValue;
