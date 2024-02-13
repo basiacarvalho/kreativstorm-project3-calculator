@@ -64,7 +64,7 @@ function showOnDisplay(input) {
 // Making the calculator work when the user presses "="
 function calculate() {
   if (operator !== null  && userFirstInput !== null && displayValue !== "") {
-    displayValue = operate(operator, userFirstInput, Number(displayValue));
+    displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
     display.value = displayValue;
     shouldClearDisplay = true;
     operator = null;
@@ -78,7 +78,7 @@ function setOperator(chosenOperator) {
     calculate();
   }
   operator = chosenOperator;
-  userFirstInput = Number(displayValue);
+  userFirstInput = displayValue;
   shouldClearDisplay = true;
   lastButtonPressed = chosenOperator;
 }
