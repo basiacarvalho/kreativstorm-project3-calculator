@@ -65,11 +65,18 @@ function showOnDisplay(input) {
 function calculate() {
   if (operator !== null  && userFirstInput !== null && displayValue !== "") {
     displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
-    display.value = displayValue;
+    const numberOfDigitsLeftAfterDot = calculatingNumberOfDecimalDigits();
+    display.value = displayValue.toFixed(numberOfDigitsLeftAfterDot);
     shouldClearDisplay = true;
     operator = null;
     userFirstInput = null;
-  }  
+  }
+}
+
+function calculatingNumberOfDecimalDigits() {
+  const positionOfDotInResult = displayValue.toString().indexOf('.');
+  const maxNumberOfDigitsOnDisplay = 13;
+  return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
 }
 
 // Storing the 1st  input value into a calculator when a user presses an operator
