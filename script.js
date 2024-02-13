@@ -46,6 +46,9 @@ let shouldClearDisplay = false;
 
 // Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
+  if (displayValue.length > 12) {
+    return;
+  }
   if (shouldClearDisplay === true) {
     display.value = "";
     shouldClearDisplay = false;
