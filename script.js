@@ -66,7 +66,7 @@ function calculate() {
   if (operator !== null  && userFirstInput !== null && displayValue !== "") {
     displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
     const numberOfDigitsLeftAfterDot = calculatingNumberOfDecimalDigits();
-    display.value = displayValue.toFixed(numberOfDigitsLeftAfterDot);
+    display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
     shouldClearDisplay = true;
     operator = null;
     userFirstInput = null;
@@ -110,7 +110,6 @@ function clearLastDisplayElement() {
 }
 
 // KeyBoard support
-
 document.addEventListener("keydown", (event) => {
   if (event.key === "0") {
     showOnDisplay("0");
