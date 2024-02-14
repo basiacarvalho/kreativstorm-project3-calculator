@@ -60,18 +60,22 @@ function calculateSpaceForDecimalDigits() {
 
 // Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
-  lastButtonPressed = input;
   if (displayValue.length > 12) {
     return;
   }
-  if (shouldClearDisplay === true) {
-    display.value = "";
-    shouldClearDisplay = false;
-  } 
+  lastButtonPressed = input;
+  clearDisplayWhenNecessary();
   if (input !== "." || !displayValue.includes('.')) {
     display.value += input;
     displayValue = display.value;
   }
+}
+
+function clearDisplayWhenNecessary() {
+  if (shouldClearDisplay === true) {
+    display.value = "";
+    shouldClearDisplay = false;
+  } 
 }
 
 // Storing the 1st  input value into a calculator when a user presses an operator
