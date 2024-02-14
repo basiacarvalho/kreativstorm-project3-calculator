@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="page-title">Pocket Calculator</h1>
+    </header>
+    <main class="calculator">
+      <input class="calculator__display" readonly>
+      <div class="calculator__buttons">
+        <button 
+          class="calculator__button calculator__button--grey one-and-half-space" 
+          onclick="clearAllDisplay()"
+        >
+          C
+        </button>
+        <button 
+          class="calculator__button calculator__button--grey one-and-half-space" 
+          onclick="clearLastDisplayElement()"
+        >
+          DEL
+        </button>
+        <button 
+          class="calculator__button calculator__button--orange" 
+          onclick="setOperator('/')"
+        >
+          ÷
+        </button>
+        <button class="calculator__button" onclick="showOnDisplay('7')">7</button>
+        <button class="calculator__button" onclick="showOnDisplay('8')">8</button>
+        <button class="calculator__button" onclick="showOnDisplay('9')">9</button>
+        <button 
+          class="calculator__button calculator__button--orange" 
+          onclick="setOperator('*')"
+        >
+          x
+        </button>
+        <button class="calculator__button" onclick="showOnDisplay('4')">4</button>
+        <button class="calculator__button" onclick="showOnDisplay('5')">5</button>
+        <button class="calculator__button" onclick="showOnDisplay('6')">6</button>
+        <button 
+          class="calculator__button calculator__button--orange" 
+          onclick="setOperator('-')"
+        >
+          -
+        </button>
+        <button class="calculator__button" onclick="showOnDisplay('1')">1</button>
+        <button class="calculator__button" onclick="showOnDisplay('2')">2</button>
+        <button class="calculator__button" onclick="showOnDisplay('3')">3</button>
+        <button 
+          class="calculator__button calculator__button--orange" 
+          onclick="setOperator('+')"
+        >
+          +
+        </button>
+        <button class="calculator__button" onclick="showOnDisplay('0')">0</button>
+        <button class="calculator__button" onclick="showOnDisplay('.')">.</button>
+        <button 
+          class="calculator__button calculator__button--green double-space-button" 
+          onclick="calculate()"
+        >
+          =
+        </button>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="footer__paragraph">Alessandro Júnior</p>
+      <p class="footer__paragraph">Barbara Carvalho</p>
+      <p class="footer__paragraph">Elisabeth Erkekoglou</p>
+    </footer>
+  </body>
+</html>
