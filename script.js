@@ -6,7 +6,6 @@ let operator = null;
 let shouldClearDisplay = false;
 let lastButtonPressed = null;
 
-// Making the calculator work
 function calculate() {
   if (operator !== null  && userFirstInput !== null && displayValue !== "") {
     displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
@@ -18,7 +17,6 @@ function calculate() {
   }
 }
 
-// Function that takes 2 numbers and according to the operator calls the correct basic Math's function
 function operate(operator, number1, number2) {
   if (operator === "+") {
     return add(number1, number2);
@@ -38,22 +36,18 @@ function operate(operator, number1, number2) {
   };
 }
 
-// Basic Math's function for addition
 function add(number1, number2) {
   return number1 + number2;
 }
 
-// Basic Math's function for substraction
 function substract(number1, number2) {
   return number1 - number2;
 }
 
-// Basic Math's function for multiplication
 function multiply(number1, number2) {
   return number1 * number2;
 }
 
-// Basic Math's function for division
 function divide(number1, number2) {
   return number1 / number2;
 }
@@ -92,7 +86,6 @@ function setOperator(chosenOperator) {
   lastButtonPressed = chosenOperator;
 }
 
-// Clearing all the calculator display using the C button
 function clearAllDisplay() {
   lastButtonPressed = null;
   display.value = "";
@@ -102,7 +95,6 @@ function clearAllDisplay() {
   shouldClearDisplay = false;
 }
 
-// Clearing the last display element
 function clearLastDisplayElement() {
   lastButtonPressed = 'DEL'
   if (shouldClearDisplay !== true) {
@@ -111,7 +103,6 @@ function clearLastDisplayElement() {
   } 
 }
 
-// KeyBoard support
 document.addEventListener("keydown", (event) => {
   if (event.key === "0") {
     showOnDisplay("0");
