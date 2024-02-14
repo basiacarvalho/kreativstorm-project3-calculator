@@ -9,7 +9,7 @@ let lastButtonPressed = null;
 function calculate() {
   if (operator !== null  && userFirstInput !== null && displayValue !== "") {
     displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
-    const numberOfDigitsLeftAfterDot = calculateNumberOfDecimalDigits();
+    const numberOfDigitsLeftAfterDot = calculateSpaceForDecimalDigits();
     display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
     shouldClearDisplay = true;
     operator = null;
@@ -52,8 +52,7 @@ function divide(number1, number2) {
   return number1 / number2;
 }
 
-// Logic for displaying and limiting the length of the result on display
-function calculateNumberOfDecimalDigits() {
+function calculateSpaceForDecimalDigits() {
   const positionOfDotInResult = displayValue.toString().indexOf('.');
   const maxNumberOfDigitsOnDisplay = 13;
   return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
