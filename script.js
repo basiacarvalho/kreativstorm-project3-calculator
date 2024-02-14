@@ -58,7 +58,6 @@ function calculateSpaceForDecimalDigits() {
   return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
 }
 
-// Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
   if (displayValue.length > 12) {
     return;
@@ -78,7 +77,6 @@ function clearDisplayWhenNecessary() {
   } 
 }
 
-// Storing the 1st  input value into a calculator when a user presses an operator
 function setOperator(chosenOperator) {
   if (!["/", "*", "-", "+"].includes(lastButtonPressed)) {
     calculate();
@@ -147,4 +145,3 @@ document.addEventListener("keydown", (event) => {
     clearLastDisplayElement();
   }
 });
-
