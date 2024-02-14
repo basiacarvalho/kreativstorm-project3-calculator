@@ -1,6 +1,6 @@
 const display = document.querySelector(".calculator__display");
 
-let displayValue = "";
+let displayValue = 0;
 let userFirstInput = null;
 let operator = null;
 let shouldClearDisplay = false;
@@ -64,15 +64,16 @@ function showOnDisplay(input) {
   }
   lastButtonPressed = input;
   clearDisplayWhenNecessary();
-  if (input !== "." || !displayValue.includes('.')) {
+  if (input !== "." || !displayValue.toString().includes('.')) {
     display.value += input;
-    displayValue = display.value;
+    displayValue = Number(display.value);
   }
 }
 
 function clearDisplayWhenNecessary() {
   if (shouldClearDisplay === true) {
     display.value = "";
+    displayValue = 0;
     shouldClearDisplay = false;
   } 
 }
@@ -90,7 +91,7 @@ function setOperator(chosenOperator) {
 function clearAllDisplay() {
   lastButtonPressed = null;
   display.value = "";
-  displayValue = "";
+  displayValue = 0;
   userFirstInput = null;
   operator = null;
   shouldClearDisplay = false;
@@ -99,7 +100,7 @@ function clearAllDisplay() {
 function clearLastDisplayElement() {
   lastButtonPressed = 'DEL'
   if (shouldClearDisplay !== true) {
-    displayValue = displayValue.slice(0, -1);
+    displayValue = Number(displayValue.toString().slice(0, -1));
     display.value = displayValue;
   } 
 }
