@@ -63,15 +63,15 @@ function showOnDisplay(input) {
     return;
   }
   lastButtonPressed = input;
-  clearDisplayWhenNecessary();
-  if (input !== "." || !displayValue.toString().includes('.')) {
+  clearDisplayWhenNecessary(input);
+  if (input !== "." || !display.value.includes('.')) {
     display.value += input;
     displayValue = Number(display.value);
   }
 }
 
-function clearDisplayWhenNecessary() {
-  if (shouldClearDisplay === true) {
+function clearDisplayWhenNecessary(input) {
+  if (shouldClearDisplay === true || (display.value === "0" && input !== ".")) {
     display.value = "";
     displayValue = 0;
     shouldClearDisplay = false;
