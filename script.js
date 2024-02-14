@@ -79,7 +79,8 @@ function clearDisplayWhenNecessary(input) {
 }
 
 function setOperator(chosenOperator) {
-  if (!["/", "*", "-", "+"].includes(lastButtonPressed)) {
+  const operators = ["/", "*", "-", "+"];
+  if (!operators.includes(lastButtonPressed)) {
     calculate();
   }
   operator = chosenOperator;
