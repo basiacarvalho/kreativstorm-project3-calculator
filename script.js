@@ -7,8 +7,8 @@ let shouldClearDisplay = false;
 let lastButtonPressed = null;
 
 function calculate() {
-  if (operator !== null  && userFirstInput !== null && displayValue !== "") {
-    displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
+  if (operator !== null  && userFirstInput !== null && display.value !== "") {
+    displayValue = operate(operator, Number(userFirstInput), displayValue);
     const numberOfDigitsLeftAfterDot = calculateSpaceForDecimalDigits();
     display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
     shouldClearDisplay = true;
