@@ -101,8 +101,8 @@ function clearAllDisplay() {
 function clearLastDisplayElement() {
   lastButtonPressed = 'DEL'
   if (shouldClearDisplay !== true) {
-    displayValue = Number(displayValue.toString().slice(0, -1));
-    display.value = displayValue;
+    display.value = display.value.slice(0, -1);
+    displayValue = Number(display.value);
   } 
 }
 
