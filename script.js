@@ -1,16 +1,15 @@
 const display = document.querySelector(".calculator__display");
 
-let displayValue = "";
+let displayValue = 0;
 let userFirstInput = null;
 let operator = null;
 let shouldClearDisplay = false;
 let lastButtonPressed = null;
 
-// Making the calculator work
 function calculate() {
-  if (operator !== null  && userFirstInput !== null && displayValue !== "") {
-    displayValue = operate(operator, Number(userFirstInput), Number(displayValue));
-    const numberOfDigitsLeftAfterDot = calculateNumberOfDecimalDigits();
+  if (operator !== null  && userFirstInput !== null && display.value !== "") {
+    displayValue = operate(operator, Number(userFirstInput), displayValue);
+    const numberOfDigitsLeftAfterDot = calculateSpaceForDecimalDigits();
     display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
     shouldClearDisplay = true;
     operator = null;
@@ -18,7 +17,6 @@ function calculate() {
   }
 }
 
-// Function that takes 2 numbers and according to the operator calls the correct basic Math's function
 function operate(operator, number1, number2) {
   if (operator === "+") {
     return add(number1, number2);
@@ -38,52 +36,51 @@ function operate(operator, number1, number2) {
   };
 }
 
-// Basic Math's function for addition
 function add(number1, number2) {
   return number1 + number2;
 }
 
-// Basic Math's function for substraction
 function substract(number1, number2) {
   return number1 - number2;
 }
 
-// Basic Math's function for multiplication
 function multiply(number1, number2) {
   return number1 * number2;
 }
 
-// Basic Math's function for division
 function divide(number1, number2) {
   return number1 / number2;
 }
 
-// Logic for displaying and limiting the length of the result on display
-function calculateNumberOfDecimalDigits() {
+function calculateSpaceForDecimalDigits() {
   const positionOfDotInResult = displayValue.toString().indexOf('.');
   const maxNumberOfDigitsOnDisplay = 13;
   return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
 }
 
-// Function that shows on the calculator display what the user clicked and after performing a calculation clears the calculator display
 function showOnDisplay(input) {
-  lastButtonPressed = input;
   if (displayValue.length > 12) {
     return;
   }
-  if (shouldClearDisplay === true) {
-    display.value = "";
-    shouldClearDisplay = false;
-  } 
-  if (input !== "." || !displayValue.includes('.')) {
+  lastButtonPressed = input;
+  clearDisplayWhenNecessary(input);
+  if (input !== "." || !display.value.includes('.')) {
     display.value += input;
-    displayValue = display.value;
+    displayValue = Number(display.value);
   }
 }
 
-// Storing the 1st  input value into a calculator when a user presses an operator
+function clearDisplayWhenNecessary(input) {
+  if (shouldClearDisplay === true || (display.value === "0" && input !== ".")) {
+    display.value = "";
+    displayValue = 0;
+    shouldClearDisplay = false;
+  } 
+}
+
 function setOperator(chosenOperator) {
-  if (!["/", "*", "-", "+"].includes(lastButtonPressed)) {
+  const operators = ["/", "*", "-", "+"];
+  if (!operators.includes(lastButtonPressed)) {
     calculate();
   }
   operator = chosenOperator;
@@ -92,26 +89,23 @@ function setOperator(chosenOperator) {
   lastButtonPressed = chosenOperator;
 }
 
-// Clearing all the calculator display using the C button
 function clearAllDisplay() {
   lastButtonPressed = null;
   display.value = "";
-  displayValue = "";
+  displayValue = 0;
   userFirstInput = null;
   operator = null;
   shouldClearDisplay = false;
 }
 
-// Clearing the last display element
 function clearLastDisplayElement() {
   lastButtonPressed = 'DEL'
   if (shouldClearDisplay !== true) {
-    displayValue = displayValue.slice(0, -1);
-    display.value = displayValue;
+    display.value = display.value.slice(0, -1);
+    displayValue = Number(display.value);
   } 
 }
 
-// KeyBoard support
 document.addEventListener("keydown", (event) => {
   if (event.key === "0") {
     showOnDisplay("0");
@@ -153,4 +147,3 @@ document.addEventListener("keydown", (event) => {
     clearLastDisplayElement();
   }
 });
-
