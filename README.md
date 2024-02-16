@@ -1,5 +1,5 @@
 ### kreativstorm-project3-calculator
-## ![alt text](./images/calculator_icon%20(2).png) Pocket Calculator
+## ![alt text](./images/calculator_icon.png) Pocket Calculator
 
 
 ## Table of contents
@@ -24,9 +24,9 @@ A "Pocket Calculator" page with a calculator display performing all of the basic
 - Live Site URL: [Live demo](https://basiacarvalho.github.io/kreativstorm-project3-calculator/)
 
 ### Screenshots
-![Screenshot](./images/calculator_1.png)
+![Screenshot](./images/calculator.png)
 
-![Screenshot](./images/calculator_dev_tools_2.png)
+![Screenshot](./images/calculator_dev_tools.png)
 
 
 ### Technology stack
