@@ -160,13 +160,41 @@ body {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   .header {
     padding: 20px;
   }
 
   .page-title {
     font-size: 2rem;
+  }
+
+  .calculator {
+    border-radius: 20px;
+    width: 330px;
+  }
+
+  .calculator__display {
+    padding: 17px 15px;
+    font-size: 2.5rem;
+  }
+
+  .calculator__buttons {
+    gap: 12px;
+  }
+
+  .calculator__button {
+    width: 65px;
+    height: 65px;
+    font-size: 2rem;
+  }
+
+  .one-and-half-space {
+    width: 105px;
+  }
+
+  .double-space-button {
+    width: 145px;
   }
 
   .footer {
