@@ -1,5 +1,5 @@
 ### kreativstorm-project3-calculator
-## 🖩 Pocket Calculator
+## ![alt text](./images/calculator_icon%20(2).png) Pocket Calculator
 
 
 ## Table of contents
@@ -13,7 +13,7 @@
 ## Overview
 
 ### The Project
-A pocket calculator page with a calculator display performing all of the basic math operations like:
+A "Pocket Calculator" page with a calculator display performing all of the basic math operations like:
 - addition, 
 - subtraction, 
 - multiplication,
@@ -25,6 +25,7 @@ A pocket calculator page with a calculator display performing all of the basic m
 
 ### Screenshots
 ![Screenshot](./images/calculator_1.png)
+
 ![Screenshot](./images/calculator_dev_tools_2.png)
 
 
@@ -32,5 +33,3 @@ A pocket calculator page with a calculator display performing all of the basic m
 - HTML
 - CSS
 - JavaScript
-
-
