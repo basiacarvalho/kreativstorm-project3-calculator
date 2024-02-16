@@ -64,6 +64,9 @@ function showOnDisplay(input) {
   }
   lastButtonPressed = input;
   clearDisplayWhenNecessary(input);
+  if (input === "." && display.value === "") {
+    display.value = "0";
+  }
   if (input !== "." || !display.value.includes('.')) {
     display.value += input;
     displayValue = Number(display.value);
