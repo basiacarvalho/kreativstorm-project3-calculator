@@ -62,7 +62,9 @@ function calculateSpaceForDecimalDigits() {
   const result = maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
   if (result > 5) {
     return 5;
-  } 
+  } else if (result < 0) {
+    return 0;
+  }
   return result;
 }
 
