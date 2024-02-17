@@ -120,39 +120,14 @@ function clearLastDisplayElement() {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "0") {
-    showOnDisplay("0");
-  } else if ((event.key === "1")) {
-    showOnDisplay("1");
-  } else if ((event.key === "2")) {
-    showOnDisplay("2");
-  } else if ((event.key === "3")) {
-    showOnDisplay("3");
-  } else if ((event.key === "4")) {
-    showOnDisplay("4");
-  } else if ((event.key === "5")) {
-    showOnDisplay("5");
-  } else if ((event.key === "6")) {
-    showOnDisplay("6");
-  } else if ((event.key === "7")) {
-    showOnDisplay("7");
-  } else if ((event.key === "8")) {
-    showOnDisplay("8");
-  } else if ((event.key === "9")) {
-    showOnDisplay("9");
-  } else if ((event.key === ".")) {
-    showOnDisplay('.');
-  } else if ((event.key === "/")) {
-    setOperator('/');
-  } else if ((event.key === "*")) {
-    setOperator('*');
-  } else if ((event.key === "-")) {
-    setOperator('-');
-  } else if ((event.key === "+")) {
-    setOperator('+');
-  } else if ((event.key === "=")) {
-    calculate();
-  } else if ((event.key === "Enter")) {
+  const regularButtons = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
+  const operators = ["/", "*", "-", "+"];
+  const calculationButtons = ["Enter", "="];
+  if (regularButtons.includes(event.key)) {
+    showOnDisplay(event.key);
+  } else if (operators.includes(event.key)) {
+    setOperator(event.key);
+  } else if (calculationButtons.includes(event.key)) {
     calculate();
   } else if ((event.key === "Delete")) {
     clearAllDisplay();
@@ -160,3 +135,44 @@ document.addEventListener("keydown", (event) => {
     clearLastDisplayElement();
   }
 });
+
+//   // if (event.key === "0") {
+//   //   showOnDisplay("0");
+//   // } else if ((event.key === "1")) {
+//   //   showOnDisplay("1");
+//   // } else if ((event.key === "2")) {
+//   //   showOnDisplay("2");
+//   // } else if ((event.key === "3")) {
+//   //   showOnDisplay("3");
+//   // } else if ((event.key === "4")) {
+//   //   showOnDisplay("4");
+//   // } else if ((event.key === "5")) {
+//   //   showOnDisplay("5");
+//   // } else if ((event.key === "6")) {
+//   //   showOnDisplay("6");
+//   // } else if ((event.key === "7")) {
+//   //   showOnDisplay("7");
+//   // } else if ((event.key === "8")) {
+//   //   showOnDisplay("8");
+//   // } else if ((event.key === "9")) {
+//   //   showOnDisplay("9");
+//   // } else if ((event.key === ".")) {
+//   //   showOnDisplay('.');
+//   // } else if ((event.key === "/")) {
+//   //   setOperator('/');
+//   // } else if ((event.key === "*")) {
+//   //   setOperator('*');
+//   // } else if ((event.key === "-")) {
+//   //   setOperator('-');
+//   // } else if ((event.key === "+")) {
+//   //   setOperator('+');
+//   // } else if ((event.key === "=")) {
+//   //   calculate();
+//   // } else if ((event.key === "Enter")) {
+//   //   calculate();
+//   // } else if ((event.key === "Delete")) {
+//   //   clearAllDisplay();
+//   // } else if ((event.key === "Backspace")) {
+//   //   clearLastDisplayElement();
+//   // }
+// });
