@@ -10,7 +10,11 @@ function calculate() {
   if (operator !== null  && userFirstInput !== null && display.value !== "") {
     displayValue = operate(operator, Number(userFirstInput), displayValue);
     const numberOfDigitsLeftAfterDot = calculateSpaceForDecimalDigits();
-    display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
+    if (typeof(displayValue) === "number") {
+      display.value = Number(displayValue.toFixed(numberOfDigitsLeftAfterDot));
+    } else {
+      display.value = displayValue;
+    }
     shouldClearDisplay = true;
     operator = null;
     userFirstInput = null;
@@ -55,11 +59,15 @@ function divide(number1, number2) {
 function calculateSpaceForDecimalDigits() {
   const positionOfDotInResult = displayValue.toString().indexOf('.');
   const maxNumberOfDigitsOnDisplay = 13;
-  return maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
+  const result = maxNumberOfDigitsOnDisplay - positionOfDotInResult - 1;
+  if (result > 5) {
+    return 5;
+  } 
+  return result;
 }
 
 function showOnDisplay(input) {
-  if (displayValue.length > 12) {
+  if (display.value.length > 12 && shouldClearDisplay !== true) {
     return;
   }
   lastButtonPressed = input;
